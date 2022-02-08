@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:veripark_project/component/appbar_design.dart';
 import 'package:veripark_project/component/logo.dart';
 import 'package:veripark_project/core/base/base_state.dart';
+import 'package:veripark_project/homepage.dart';
 
 class Start extends StatefulWidget {
   const Start({Key? key}) : super(key: key);
@@ -17,10 +19,7 @@ class _StartState extends BaseState<Start> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(appbarTxt),
-        centerTitle: false,
-      ),
+      appBar: const PreferredSize(preferredSize: Size.fromHeight(56.0), child: AppBarDesign()),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -44,7 +43,9 @@ class _StartState extends BaseState<Start> {
             Padding(
               padding: EdgeInsets.symmetric(vertical: dynamicHeight(0.03)),
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => const HomePage()));
+                },
                 child: Padding(
                   padding: EdgeInsets.symmetric(horizontal: dynamicWidth(0.03)),
                   child: Text(
